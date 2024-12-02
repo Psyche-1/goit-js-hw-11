@@ -7,6 +7,7 @@ const gallery = document.querySelector('.gallery');
 const items = [];
 
 export default function createMarkup(images) {
+  gallery.innerHTML = '';
   for (const image of images) {
     const item = document.createElement('li');
     item.classList.add('gallery-item');
