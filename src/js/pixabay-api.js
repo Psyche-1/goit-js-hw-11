@@ -6,10 +6,12 @@ import 'izitoast/dist/css/iziToast.min.css';
 import createMarkup from './render-functions';
 
 const input = document.querySelector('#search-field');
+const loading = document.querySelector('.loading');
 
 let images;
 
 export default function searching() {
+  loading.classList.add('visually-hidden');
   const searchWord = input.value.trim();
 
   if (!searchWord) {
@@ -44,6 +46,7 @@ export default function searching() {
         return;
       }
 
+      loading.classList.remove('visually-hidden');
       createMarkup(images);
     })
     .catch(error => console.log(error));
