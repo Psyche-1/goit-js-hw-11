@@ -7,6 +7,7 @@ import createMarkup from './render-functions';
 
 const input = document.querySelector('#search-field');
 const loading = document.querySelector('.loading');
+const gallery = document.querySelector('.gallery');
 
 let images;
 
@@ -47,6 +48,7 @@ export default function searching() {
       }
 
       loading.classList.remove('visually-hidden');
+      gallery.innerHTML = '';
       createMarkup(images);
     })
     .catch(error => console.log(error));
