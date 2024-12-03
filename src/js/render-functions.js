@@ -8,6 +8,7 @@ const items = [];
 
 export default function createMarkup(images) {
   gallery.innerHTML = '';
+  const items = [];
   for (const image of images) {
     const item = document.createElement('li');
     item.classList.add('gallery-item');

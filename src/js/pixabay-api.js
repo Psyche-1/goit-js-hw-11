@@ -44,12 +44,21 @@ export default function searching() {
             'Sorry, there are no images matching your search query. Please try again!',
           backgroundColor: 'red',
         });
+        gallery.innerHTML = '';
         return;
       }
 
       loading.classList.remove('visually-hidden');
       gallery.innerHTML = '';
       createMarkup(images);
+      // gallery.innerHTML = '';
+      loading.classList.add('visually-hidden');
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      iziToast.show({
+        message: error,
+        backgroundColor: 'red',
+      });
+      gallery.innerHTML = '';
+    });
 }
